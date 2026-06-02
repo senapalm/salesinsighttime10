@@ -1,0 +1,5 @@
+## Para o projeto utilizaremos:
+pandas
+numpy
+matplotlib
+seaborn
