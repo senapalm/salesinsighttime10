@@ -10,3 +10,4 @@ df_bruto.head()
 #INSPEÇÃO INICIAL DOS DADOS BRUTOS
 from analysis import inspecionar_dados
 inspecionar_dados(df_bruto)
+df_bruto.head()
