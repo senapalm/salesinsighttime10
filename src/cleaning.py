@@ -1,4 +1,4 @@
-#FUNÇÃO DE LIMPEZA DE DADOS
+#FUNÇÃO PARA LIMPEZA DE DADOS
 
 import pandas as pd
 import numpy as np
