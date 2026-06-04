@@ -87,3 +87,90 @@ def limpar_strings_com_regex(df):
     )
 
     return df
+
+#EXPORTAÇÔES 
+
+import os
+import json
+import pandas as pd
+
+
+def exportar_resultados(metricas, clientes, stats_numpy):
+    """
+    Exporta resultados do projeto em CSV e JSON.
+    Também realiza a leitura dos arquivos exportados para validação.
+    """
+
+    print("\n=== EXPORTAÇÃO DE RESULTADOS ===")
+
+    # Cria a pasta de saída caso não exista
+    os.makedirs("outputs", exist_ok=True)
+
+
+    # EXPORTAÇÃO CSV - MÉTRICAS POR MÊS
+
+
+    caminho_csv = "outputs/metricas_por_mes.csv"
+
+    metricas["por_mes"].to_csv(
+        caminho_csv,
+        index=False,
+        encoding="utf-8-sig"
+    )
+
+    print(f"CSV exportado: {caminho_csv}")
+
+    # Leitura de validação
+    df_metricas_lido = pd.read_csv(caminho_csv)
+
+    print("\nPrimeiras linhas do CSV de métricas:")
+    print(df_metricas_lido.head())
+
+    # EXPORTAÇÃO CSV - SEGMENTAÇÃO DE CLIENTES
+
+
+    caminho_clientes = "outputs/segmentacao_clientes.csv"
+
+    clientes.to_csv(
+        caminho_clientes,
+        index=False,
+        encoding="utf-8-sig"
+    )
+
+    print(f"\nCSV exportado: {caminho_clientes}")
+
+    # Leitura de validação
+    df_clientes_lido = pd.read_csv(caminho_clientes)
+
+    print("\nPrimeiras linhas do CSV de clientes:")
+    print(df_clientes_lido.head())
+
+
+    # EXPORTAÇÃO JSON - ESTATÍSTICAS GERAIS
+
+
+    caminho_json = "outputs/estatisticas_gerais.json"
+
+    stats_serializaveis = {
+        chave: round(float(valor), 2)
+        for chave, valor in stats_numpy.items()
+    }
+
+    with open(caminho_json, "w", encoding="utf-8") as arquivo:
+        json.dump(
+            stats_serializaveis,
+            arquivo,
+            indent=4,
+            ensure_ascii=False
+        )
+
+    print(f"\nJSON exportado: {caminho_json}")
+
+    # Leitura de validação
+    with open(caminho_json, "r", encoding="utf-8") as arquivo:
+        dados_lidos = json.load(arquivo)
+
+    print("\nConteúdo do JSON exportado:")
+    print(json.dumps(dados_lidos, indent=4, ensure_ascii=False))
+
+    print("\nExportação concluída com sucesso.")
