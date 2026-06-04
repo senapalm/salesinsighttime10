@@ -10,6 +10,8 @@
 # RF08-RF11 - Análises e Visualizações
 # RF12 - Exportação CSV/JSON
 
+from herança import AnalisadorComProjecao
+
 #GERANDO O DATASET DE DADOS BRUTOS
 from data_loader import gerar_dataset_vendas
 df_bruto = gerar_dataset_vendas()
@@ -50,3 +52,12 @@ print("Pasta de saída: outputs/")
 # exportar_json(stats_numpy)
 
 print("Arquivos serão salvos na pasta outputs/")
+
+
+#Heranças
+
+analisador = AnalisadorComProjecao(df_bruto)
+
+analisador.exibir_resumo()
+
+analisador.projetar_receita()
