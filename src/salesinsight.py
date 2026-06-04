@@ -11,3 +11,7 @@ df_bruto.head()
 from analysis import inspecionar_dados
 inspecionar_dados(df_bruto)
 df_bruto.head()
+
+#ESTATISCAS BÁSICAS
+from utils import calcular_estatisticas_numpy
+calcular_estatisticas_numpy(df_bruto)
