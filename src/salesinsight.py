@@ -28,6 +28,3 @@ segmentar_clientes = segmentar_clientes(df)
 #PRÉ-VISUALIZAÇÃO DO DATASET LIMPO E TRANSFORMADO
 print("\n=== DATASET LIMPO E TRANSFORMADO ===")
 print(df.head())
-
-df_bruto.head()
-
