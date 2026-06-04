@@ -51,3 +51,39 @@ def calcular_estatisticas_numpy(df):
         "percentil_25": p25,
         "percentil_75": p75
     }
+
+
+#LIMPEZA DE STRINGS
+import re
+
+def limpar_strings_com_regex(df):
+    """
+    Usa expressões regulares para limpeza e validação de dados textuais.
+
+    - Remove caracteres especiais da coluna 'cliente'
+    - Valida se o cliente segue o padrão 'Cliente_XXX'
+    """
+
+    print("\n=== LIMPEZA COM REGEX ===")
+
+    # Remove caracteres não alfanuméricos
+    df["cliente_limpo"] = df["cliente"].apply(
+        lambda s: re.sub(r"[^a-zA-Z0-9_ ]", "", str(s)).strip()
+    )
+
+    # Valida padrão Cliente_001, Cliente_002, etc.
+    padrao_cliente = re.compile(r"^Cliente_\d{3}$")
+
+    df["cliente_valido"] = df["cliente_limpo"].apply(
+        lambda s: bool(padrao_cliente.match(s))
+    )
+
+    n_invalidos = (~df["cliente_valido"]).sum()
+
+    print(f"Clientes com formato inválido encontrados: {n_invalidos}")
+    print(
+        f"Amostra de clientes limpos: "
+        f"{df['cliente_limpo'].head(5).tolist()}"
+    )
+
+    return df
