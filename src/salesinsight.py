@@ -8,6 +8,7 @@ df_bruto = gerar_dataset_vendas()
 from analysis import inspecionar_dados
 inspecionar_dados(df_bruto)
 
+
 #LIMPEZA E TRATAMENTO DOS DADOS
 from cleaning import limpar_dados
 df, relatorio_limpeza = limpar_dados(df_bruto)
@@ -27,3 +28,6 @@ segmentar_clientes = segmentar_clientes(df)
 #PRÉ-VISUALIZAÇÃO DO DATASET LIMPO E TRANSFORMADO
 print("\n=== DATASET LIMPO E TRANSFORMADO ===")
 print(df.head())
+
+df_bruto.head()
+
