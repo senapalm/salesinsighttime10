@@ -2,6 +2,8 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 def criar_colunas_derivadas(df):
     """Cria colunas calculadas e derivadas a partir do dataset limpo."""
@@ -69,3 +71,26 @@ def calcular_metricas(df):
 
     return metricas
 
+
+
+#FUNDAÇÃO DE SEGMENTAÇÃO DE CLIENTES
+
+def segmentar_clientes(df):
+    """Segmenta clientes pelo total gasto usando groupby e lambda."""
+
+    clientes = df.groupby("cliente")["receita_total"].sum().reset_index()
+    clientes.columns = ["cliente", "total_gasto"]
+
+    # Classificação usando função lambda com condicionais
+    clientes["segmento"] = clientes["total_gasto"].apply(
+        lambda gasto: "Ouro" if gasto > 15000
+                      else ("Prata" if gasto >= 5000 else "Bronze")
+    )
+
+    clientes = clientes.sort_values("total_gasto", ascending=False)
+
+    print("\n=== SEGMENTAÇÃO DE CLIENTES ===")
+    print(clientes.head(10).to_string(index=False))
+    print(f"\nDistribuição de segmentos:\n{clientes['segmento'].value_counts()}")
+
+    return clientes

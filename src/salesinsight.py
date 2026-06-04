@@ -14,12 +14,16 @@ df, relatorio_limpeza = limpar_dados(df_bruto)
 
 #TRANSFORMAÇÃO - CRIAÇÃO DE COLUNAS DERIVADAS
 from utils import criar_colunas_derivadas
-df_limpo = criar_colunas_derivadas(df)
-
-#PRÉ-VISUALIZAÇÃO DO DATASET LIMPO E TRANSFORMADO
-print("\n=== DATASET LIMPO E TRANSFORMADO ===")
-print(df_limpo.head())
+df = criar_colunas_derivadas(df)
 
 #CÁLCULO DE MÉTRICAS AGREGADAS
 from utils import calcular_metricas
-metricas = calcular_metricas(df_limpo)
+metricas = calcular_metricas(df)
+
+#SEGMENTAÇÃO DE CLIENTES POR NÍVEL DE GASTO
+from utils import segmentar_clientes
+segmentar_clientes = segmentar_clientes(df)
+
+#PRÉ-VISUALIZAÇÃO DO DATASET LIMPO E TRANSFORMADO
+print("\n=== DATASET LIMPO E TRANSFORMADO ===")
+print(df.head())
