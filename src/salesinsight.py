@@ -13,4 +13,8 @@ inspecionar_dados(df_bruto)
 
 #LIMPEZA E TRATAMENTO DOS DADOS
 from cleaning import limpar_dados
-df_limpo, relatorio_limpeza = limpar_dados(df_bruto)
+df, relatorio_limpeza = limpar_dados(df_bruto)
+
+#TRANSFORMAÇÃO - CRIAÇÃO DE COLUNAS DERIVADAS
+from utils import criar_colunas_derivadas
+df = criar_colunas_derivadas(df)
