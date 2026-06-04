@@ -10,3 +10,7 @@ df_bruto.head()
 #INSPEÇÃO INICIAL DOS DADOS BRUTOS
 from analysis import inspecionar_dados
 inspecionar_dados(df_bruto)
+
+#LIMPEZA E TRATAMENTO DOS DADOS
+from cleaning import limpar_dados
+df_limpo, relatorio_limpeza = limpar_dados(df_bruto)

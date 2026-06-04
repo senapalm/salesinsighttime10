@@ -1,5 +1,8 @@
 #FUNÇÃO PARA INSPEÇÃO DOS DADOS
 
+import pandas as pd
+import numpy as np
+
 def inspecionar_dados(df):
     """Exibe informações básicas do DataFrame."""
     print("\n=== INSPEÇÃO INICIAL DO DATASET ===")
