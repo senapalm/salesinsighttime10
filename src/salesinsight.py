@@ -44,19 +44,19 @@ print(df.head())
 
 #ESTATISCAS BÁSICAS
 from utils import calcular_estatisticas_numpy
-calcular_estatisticas_numpy(df_bruto)
+calcular_estatisticas_numpy(df)
 
 # LIMPEZA COM EXPRESSÕES REGULARES
 from utils import limpar_strings_com_regex
-df_bruto = limpar_strings_com_regex(df_bruto)
+df_bruto = limpar_strings_com_regex(df)
 
 # VERIFICAR RESULTADO
-print(df_bruto[["cliente", "cliente_limpo", "cliente_valido"]].head())
+print(df[["cliente", "cliente_limpo", "cliente_valido"]].head())
 
 
 #Heranças
 
-analisador = AnalisadorComProjecao(df_bruto)
+analisador = AnalisadorComProjecao(df)
 
 analisador.exibir_resumo()
 
@@ -65,7 +65,7 @@ analisador.projetar_receita()
 
 
 df_bruto = processar_coluna(
-    df_bruto,
+    df,
     "receita_total",
     lambda x: "Alto Valor" if x > 5000 else "Valor Normal")
 
