@@ -11,6 +11,7 @@
 # RF12 - Exportação CSV/JSON
 
 from herança import AnalisadorComProjecao
+from lambdas import processar_coluna
 
 #GERANDO O DATASET DE DADOS BRUTOS
 from data_loader import gerar_dataset_vendas
@@ -36,6 +37,23 @@ df_bruto = limpar_strings_com_regex(df_bruto)
 print(df_bruto[["cliente", "cliente_limpo", "cliente_valido"]].head())
 
 
+#Heranças
+
+analisador = AnalisadorComProjecao(df_bruto)
+
+analisador.exibir_resumo()
+
+analisador.projetar_receita()
+
+
+
+df_bruto = processar_coluna(
+    df_bruto,
+    "receita_total",
+    lambda x: "Alto Valor" if x > 5000 else "Valor Normal"
+
+
+
 # RF12 - EXPORTAÇÃO DOS RESULTADOS (manter como último)
 
 import os
@@ -53,11 +71,3 @@ print("Pasta de saída: outputs/")
 
 print("Arquivos serão salvos na pasta outputs/")
 
-
-#Heranças
-
-analisador = AnalisadorComProjecao(df_bruto)
-
-analisador.exibir_resumo()
-
-analisador.projetar_receita()
