@@ -10,7 +10,7 @@
 # RF08-RF11 - Análises e Visualizações
 # RF12 - Exportação CSV/JSON
 
-from herança import AnalisadorComProjecao
+from inheritance import AnalisadorComProjecao
 from lambdas import processar_coluna
 
 #GERANDO O DATASET DE DADOS BRUTOS
