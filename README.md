@@ -16,7 +16,7 @@ O sistema realiza um pipeline completo de tratamento e análise de dados, inclui
 9 Limpeza com expressões regulares (Regex)
 10 Exemplos de Programação Orientada a Objetos (Herança)
 11 Exemplos de funções Lambda
-12 Exportação dos resultados em CSV e JSON
+12 Exportação dos resultados em CSV e JSON.
 
 ---
 
