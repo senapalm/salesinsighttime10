@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import random
+import os
 
 def gerar_dataset_vendas(n_registros=200, seed=42):
     """Gera um dataset sintético de vendas com dados intencionalmente sujos."""
@@ -50,7 +51,31 @@ def gerar_dataset_vendas(n_registros=200, seed=42):
     return pd.DataFrame(dados)
 
 # Gerar e salvar
-df_bruto = gerar_dataset_vendas()
-df_bruto.to_csv("vendas.csv", index=False)
-print(f"Dataset gerado com {len(df_bruto)} registros.")
-print(df_bruto.head())
+# df_bruto = gerar_dataset_vendas()
+# df_bruto.to_csv("vendas.csv", index=False)
+# print(f"Dataset gerado com {len(df_bruto)} registros.")
+# print(df_bruto.head())
+
+def carregar_dataset(caminho_csv="vendas.csv"):
+    """Carrega o dataset de vendas a partir de um arquivo CSV."""
+    
+    df = pd.read_csv(caminho_csv)
+    print(f"Dataset carregado com {len(df)} registros.")
+    return df
+
+def carregar_ou_gerar_dataset(caminho_csv="vendas.csv"):
+    """Carrega o dataset de vendas se existir, caso contrário gera um novo."""
+    
+    if os.path.exists(caminho_csv):
+        print(f"Arquivo {caminho_csv} encontrado. Carregando dataset...")
+        return carregar_dataset(caminho_csv)
+    
+    else:
+        print(f"Arquivo {caminho_csv} não encontrado. Gerando novo dataset...")
+        
+        df_bruto = gerar_dataset_vendas()
+        df_bruto.to_csv(caminho_csv, index=False)
+        
+        print(f"Dataset gerado e salvo em {caminho_csv}.")
+        
+        return df_bruto

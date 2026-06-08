@@ -1,5 +1,7 @@
+from src import salesinsight
+
 def main():
-    print("SalesInsight PY iniciado com sucesso!")
+    pass
 
 if __name__ == "__main__":
-    main()  
+    main()
