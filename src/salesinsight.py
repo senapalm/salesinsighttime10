@@ -15,8 +15,8 @@ from src.inheritance import AnalisadorComProjecao
 from src.lambdas import processar_coluna
 
 #RF01 - GERANDO O DATASET DE DADOS BRUTOS
-from src.data_loader import gerar_dataset_vendas
-df_bruto = gerar_dataset_vendas()
+from src.data_loader import carregar_ou_gerar_dataset
+df_bruto = carregar_ou_gerar_dataset()
 
 #RF02 - INSPEÇÃO INICIAL DOS DADOS BRUTOS
 from src.analysis import inspecionar_dados
