@@ -1,44 +1,123 @@
-Salesinsight.py
+# SalesInsight PY
 
-Objetivo: Análise de dados de venda para uma empresa
+## Objetivo
 
-Tecnologias utilizadas: (salesinsight.py/requirements.txt), pandas, numpy, matplotlib, seaborn
+O SalesInsight PY é um projeto de análise de dados de vendas desenvolvido em Python.
+O sistema realiza um pipeline completo de tratamento e análise de dados, incluindo:
 
-Organização de pastas
+1 Geração e carregamento de dados
+2 Inspeção inicial do dataset
+3 Limpeza e tratamento de dados
+4 Criação de colunas derivadas
+5 Cálculo de métricas agregadas
+6 Segmentação de clientes
+7 Estatísticas utilizando NumPy
+8 Visualizações gráficas
+9 Limpeza com expressões regulares (Regex)
+10 Exemplos de Programação Orientada a Objetos (Herança)
+11 Exemplos de funções Lambda
+12 Exportação dos resultados em CSV e JSON
 
-salesinsight.py
-    data
-        ## inserir CSV aqui
-    outputs
-        graficos
-        logs
-        metricas
-    src
-        analysis.py
-        cleaning.py
-        data_loader.py
-        salesinsight.py
-        utils.py
-        visualization.py
-    .gitignore
-    main.py
-    README.md
-    requirements.txt
+---
 
-Como executar:
+## Tecnologias Utilizadas
 
-    Recomendado: Google Colab
-    Acesse o Colab
-    Crie um novo Notebook ou faça upload do arquivo salesinsight.py
-    Faça upload do arquivo 'vendas.csv' na barra lateral esquerda
-    Crie uma célula de código, digite o comando abaixo e execute:
-        !python salesinsight.py
+Python
+Pandas
+NumPy
+Matplotlib
+Seaborn
 
-Para máquinas locais (VS Code)
-    Instale o Python
-    Clone o repositório ou baixe os arquivos em uma pasta
-    Abra o terminal e instale as libs:
-        pip install pandas numpymatplotlib searborn
-    Execute o pipeline com o comando:
-        python salesinsight.py
-    
+---
+
+## Fluxo de Processamento
+
+Geração de Dados
+        ↓
+Inspeção Inicial
+        ↓
+Limpeza e Tratamento
+        ↓
+Transformações
+        ↓
+Métricas Agregadas
+        ↓
+Segmentação de Clientes
+        ↓
+Estatísticas NumPy
+        ↓
+Visualizações
+        ↓
+Exportação de Resultados
+
+---
+
+## Instalação
+
+### 1. Clone o repositório
+
+```bash
+git clone <https://github.com/senapalm/salesinsighttime10/>
+```
+
+### 2. Acesse a pasta do projeto
+
+```bash
+cd salesinsighttime10
+```
+
+### 3. Crie uma máquina virtual (opcional)
+
+```bash
+py -m venv venv
+```
+
+### 4. Ative a máquina virtual
+
+Windows:
+
+```bash
+.\venv\Scripts\Activate.ps1
+```
+
+### 5. Instale as dependências
+
+```bash
+pip install pandas numpy matplotlib seaborn
+```
+
+---
+
+## Como Executar
+
+Execute o pipeline principal:
+
+```bash
+python src\salesinsight.py
+```
+
+---
+
+## Saídas Geradas
+
+Após a execução, o sistema gera o que está definido para os requisitos abaixo.
+
+---
+
+## Funcionalidades Implementadas
+
+RF01 - Geração de Dataset
+RF02 - Inspeção Inicial
+RF03 - Limpeza de Dados
+RF04 - Colunas Derivadas
+RF05 - Métricas Agregadas
+RF06 - Segmentação de Clientes
+RF07 - Estatísticas NumPy
+RF08 - Visualizações
+RF12 - Exportação CSV e JSON
+RF13 - Limpeza com Regex
+Programação Orientada a Objetos (Herança)
+Funções Lambda
+
+```
+```
