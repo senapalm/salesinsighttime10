@@ -1,4 +1,4 @@
-from src import salesinsight
+import salesinsight
 
 def main():
     pass
