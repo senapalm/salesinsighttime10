@@ -121,3 +121,5 @@ Funções Lambda
 
 ```
 ```
+## Vídeo de apresentação do projeto
+O vídeo de apresentação do projeto pode ser acessado pelo link https://drive.google.com/file/d/15bB7gcwBERGLYhEeMXNIkje1mgvU389B/view?usp=drive_link
